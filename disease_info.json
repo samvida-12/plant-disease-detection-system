@@ -1,0 +1,146 @@
+{
+  "Apple___Apple_scab": {
+    "description": "Fungal disease caused by Venturia inaequalis. Appears as dark, scabby spots on leaves and fruits, leading to reduced yield and quality.",
+    "fertilizer": "Apply a balanced NPK fertilizer (e.g., 10-10-10) to maintain overall plant vigor and follow with a copper-based fungicide as recommended."
+  },
+  "Apple___Black_rot": {
+    "description": "Fungal disease caused by Botryosphaeria obtusa. Symptoms include dark leaf spots, fruit rot, and bark cankers.",
+    "fertilizer": "Use a slow-release, well-balanced NPK fertilizer and avoid overwatering. Combine with appropriate fungicidal sprays for best management."
+  },
+  "Apple___Cedar_apple_rust": {
+    "description": "Fungal disease caused by Gymnosporangium juniperi-virginianae. Characterized by yellow–orange lesions on leaves.",
+    "fertilizer": "Use a balanced orchard fertilizer and ensure proper soil drainage. Supplement with micronutrients like zinc and boron if soil tests indicate deficiency."
+  },
+  "Apple___healthy": {
+    "description": "The apple leaf appears healthy with no visible disease symptoms or nutrient deficiencies.",
+    "fertilizer": "Maintain regular fertilization using a balanced NPK (e.g., 14-14-14) and organic compost to support continuous growth and fruiting."
+  },
+  "Blueberry___healthy": {
+    "description": "The blueberry leaf appears healthy and free from major disease or stress symptoms.",
+    "fertilizer": "Apply an acid-forming fertilizer (e.g., ammonium sulfate) suitable for blueberries, keeping soil pH slightly acidic (4.5–5.5)."
+  },
+  "Cherry_(including_sour)___healthy": {
+    "description": "The cherry leaf appears healthy with uniform color and no visible lesions.",
+    "fertilizer": "Use a balanced fruit-tree fertilizer in early spring and add well-rotted manure or compost annually around the root zone."
+  },
+  "Cherry_(including_sour)___Powdery_mildew": {
+    "description": "Fungal disease characterized by white, powdery growth on leaf surfaces, leading to distortion and reduced vigor.",
+    "fertilizer": "Apply a balanced fertilizer but avoid over-fertilizing with nitrogen. Combine with recommended fungicidal sprays and good air circulation."
+  },
+  "Corn(maize)___Cercospora_leaf_spot": {
+    "description": "Caused by Cercospora zeae-maydis, producing gray to tan lesions with dark borders, often merging into large dead areas.",
+    "fertilizer": "Apply a nitrogen-rich but balanced fertilizer based on soil test results and rotate crops to reduce disease pressure."
+  },
+  "Corn(maize)___Common_rust": {
+    "description": "Fungal disease caused by Puccinia sorghi, forming brown to reddish pustules on both sides of the leaf.",
+    "fertilizer": "Maintain good soil fertility with a balanced NPK fertilizer and ensure adequate potassium to improve disease tolerance."
+  },
+  "Corn(maize)___Northern_Leaf_Blight": {
+    "description": "Caused by Exserohilum turcicum. Produces long, cigar-shaped gray-green lesions on leaves.",
+    "fertilizer": "Use a complete NPK fertilizer along with organic matter to boost plant resilience. Avoid nutrient stress during early growth stages."
+  },
+  "Corn(maize)___healthy": {
+    "description": "The corn leaf appears healthy with good color and no disease symptoms.",
+    "fertilizer": "Apply a nitrogen-focused fertilizer (e.g., urea) in split doses along with adequate phosphorus and potassium as per soil test."
+  },
+  "Grape___Black_rot": {
+    "description": "Fungal disease caused by Guignardia bidwellii. Causes dark lesions on leaves and shriveled, mummified fruits.",
+    "fertilizer": "Use a vineyard fertilizer rich in potassium and magnesium, and avoid excessive nitrogen. Combine with regular fungicide sprays."
+  },
+  "Grape___Esca(Black_Measles)": {
+    "description": "Complex trunk disease causing dark streaks in wood and tiger-stripe patterns on leaves.",
+    "fertilizer": "Maintain balanced nutrition with NPK and micronutrients such as iron and magnesium. Avoid severe pruning stress and waterlogging."
+  },
+  "Grape___Leaf_blight(Isariopsis_Leaf_Spot)": {
+    "description": "Characterized by angular brown spots on leaves, often with yellow halos, leading to premature leaf drop.",
+    "fertilizer": "Apply a balanced fertilizer including micronutrients like zinc and manganese, and ensure proper canopy management."
+  },
+  "Peach___Bacterial_spot": {
+    "description": "Bacterial disease caused by Xanthomonas campestris. Produces water-soaked lesions on leaves and fruit.",
+    "fertilizer": "Use a balanced orchard fertilizer and avoid excessive nitrogen that can increase susceptibility. Ensure good potassium levels."
+  },
+  "Peach___healthy": {
+    "description": "Peach leaf appears healthy with no visible disease lesions or discoloration.",
+    "fertilizer": "Apply a complete fruit-tree fertilizer in early spring and incorporate compost to maintain soil structure."
+  },
+  "Pepper,_bell___Bacterial_spot": {
+    "description": "Bacterial disease caused by Xanthomonas species, producing small, water-soaked brown lesions on leaves and fruits.",
+    "fertilizer": "Use a balanced vegetable fertilizer and avoid overhead irrigation. Ensure adequate calcium and potassium."
+  },
+  "Pepper,_bell___healthy": {
+    "description": "The bell pepper leaf appears healthy with uniform green color.",
+    "fertilizer": "Apply a vegetable-specific NPK fertilizer (e.g., 12-15-20) with calcium supplementation to prevent blossom end rot."
+  },
+  "Potato___Early_blight": {
+    "description": "Fungal disease caused by Alternaria solani. Shows concentric ring (target-like) spots on older leaves.",
+    "fertilizer": "Apply a balanced fertilizer with higher potassium content to improve tuber quality and use recommended fungicides."
+  },
+  "Potato___Late_blight": {
+    "description": "Serious disease caused by Phytophthora infestans. Produces water-soaked lesions, white mold on undersides, and tuber rot.",
+    "fertilizer": "Follow soil test–based fertilization with adequate phosphorus and potassium, and avoid excessive canopy density from high nitrogen."
+  },
+  "Potato___healthy": {
+    "description": "Healthy potato leaf with no visible lesions or chlorosis.",
+    "fertilizer": "Apply a potato-specific fertilizer rich in potassium and maintain slightly acidic soil."
+  },
+  "Raspberry___healthy": {
+    "description": "Raspberry leaf appears healthy with good color and no disease symptoms.",
+    "fertilizer": "Use a berry fertilizer high in potassium and organic mulches to conserve moisture and improve soil health."
+  },
+  "Soybean___healthy": {
+    "description": "Soybean foliage is healthy and uniform with no visible disease.",
+    "fertilizer": "Ensure sufficient phosphorus and potassium, and inoculate seeds with Rhizobium for good nitrogen fixation."
+  },
+  "Squash___Powdery_mildew": {
+    "description": "Fungal disease characterized by white powdery growth on leaf surfaces, causing yellowing and premature leaf drop.",
+    "fertilizer": "Use a balanced fertilizer while avoiding excessive nitrogen. Improve air circulation and apply recommended fungicides."
+  },
+  "Strawberry___Leaf_scorch": {
+    "description": "Fungal disease causing small, purple to brown spots that merge, giving leaves a scorched appearance.",
+    "fertilizer": "Apply a berry fertilizer with balanced NPK and add organic mulch. Avoid overhead watering to reduce leaf wetness."
+  },
+  "Strawberry___healthy": {
+    "description": "Healthy strawberry foliage with no spotting or chlorosis.",
+    "fertilizer": "Use a strawberry-specific fertilizer applied in early spring and after harvest, combined with compost."
+  },
+  "Tomato___Bacterial_spot": {
+    "description": "Bacterial disease causing greasy, small dark lesions on leaves, stems, and fruits.",
+    "fertilizer": "Use a balanced fertilizer with adequate calcium and avoid excessive nitrogen. Copper-based sprays may be used as recommended."
+  },
+  "Tomato___Early_blight": {
+    "description": "Fungal disease caused by Alternaria solani, producing concentric ring lesions on older leaves.",
+    "fertilizer": "Apply a tomato fertilizer rich in potassium and maintain consistent watering. Combine with fungicide schedule."
+  },
+  "Tomato___Late_blight": {
+    "description": "Aggressive disease caused by Phytophthora infestans. Causes large, irregular water-soaked lesions on leaves and fruits.",
+    "fertilizer": "Follow balanced NPK application and avoid dense planting. Use resistant varieties and protect with fungicides where necessary."
+  },
+  "Tomato___Leaf_Mold": {
+    "description": "Fungal disease caused by Passalora fulva. Yellowing on upper leaves with olive-green mold on the undersides.",
+    "fertilizer": "Maintain moderate nitrogen levels and improve air circulation. Use appropriate fungicides under humid conditions."
+  },
+  "Tomato___Septoria_leaf_spot": {
+    "description": "Fungal disease causing numerous small, circular spots with dark margins on lower leaves.",
+    "fertilizer": "Apply balanced fertilizer and remove infected debris. Ensure sufficient potassium to improve disease resistance."
+  },
+  "Tomato___Spider_mites Two-spotted_spider_mite": {
+    "description": "Pest infestation by spider mites causing stippling, bronzing, and webbing on leaves.",
+    "fertilizer": "Maintain plant vigor with balanced fertilization and avoid water stress. Integrate biological or chemical mite control as needed."
+  },
+  "Tomato___Target_Spot": {
+    "description": "Fungal disease causing dark concentric lesions on leaves, stems, and fruit.",
+    "fertilizer": "Provide balanced nutrients with an emphasis on potassium and calcium and avoid overcrowding of plants."
+  },
+  "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+    "description": "Viral disease transmitted by whiteflies, leading to leaf curling, yellowing, and stunted growth.",
+    "fertilizer": "Use a complete fertilizer with micronutrients to support recovery and focus on vector (whitefly) control."
+  },
+  "Tomato___Tomato_mosaic_virus": {
+    "description": "Viral disease causing mosaic or mottled patterns on leaves and reduced yield.",
+    "fertilizer": "Maintain good nutrition with NPK and micronutrients, remove infected plants, and practice strict hygiene."
+  },
+  "Tomato___healthy": {
+    "description": "The tomato leaf appears healthy with no visible disease symptoms.",
+    "fertilizer": "Use a tomato-specific fertilizer rich in phosphorus and potassium, and add organic compost for long-term soil health."
+  }
+}

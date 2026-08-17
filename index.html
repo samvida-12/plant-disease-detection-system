@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plant Disease Detection</title>
+
+  <style>
+    :root {
+      --green-dark: #166534;
+      --green: #22c55e;
+      --green-soft: #bbf7d0;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #bbf7d0 0, #f3f4f6 40%, #e5e7eb 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: var(--text-main);
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.20);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .left {
+      padding: 26px 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      .left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+
+    .right {
+      padding: 26px 28px;
+      background: linear-gradient(135deg, #047857 0%, #15803d 40%, #16a34a 100%);
+      color: #ecfdf5;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h1 span.emoji {
+      font-size: 26px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .capture-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-dark);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+      box-shadow: 0 10px 20px rgba(22, 101, 52, 0.45);
+    }
+
+    .capture-btn:hover {
+      background: #14532d;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(22, 101, 52, 0.6);
+    }
+
+    .capture-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 16px rgba(22, 101, 52, 0.4);
+    }
+
+    .capture-btn .icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+
+    .debug-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #dbeafe;
+    }
+
+    .debug-chip code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 11px;
+      background: white;
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .section-title {
+      margin-top: 22px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+    }
+
+    .pill strong {
+      font-weight: 600;
+    }
+
+    .pill.good {
+      border-color: rgba(34, 197, 94, 0.4);
+      background: #ecfdf3;
+      color: #166534;
+    }
+
+    .pill.warn {
+      border-color: rgba(234, 179, 8, 0.4);
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    .pill.bad {
+      border-color: rgba(248, 113, 113, 0.45);
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    .disease-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 4px 0;
+    }
+
+    .disease-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .timestamp {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .info-box {
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: #f9fafb;
+      text-align: left;
+      font-size: 13px;
+      color: #111827;
+    }
+
+    .info-box h3 {
+      margin: 0 0 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .info-box p {
+      margin: 0;
+      color: #374151;
+    }
+
+    .image-frame {
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.25);
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .image-inner {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #020617;
+      position: relative;
+      max-height: 360px;
+      width: 100%;
+    }
+
+    .preview-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .no-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240px;
+      color: #e5e7eb;
+      font-size: 13px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .overlay-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      font-size: 11px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+      backdrop-filter: blur(4px);
+    }
+
+    .conf-chip {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      padding: 6px 11px;
+      font-size: 12px;
+      border-radius: 999px;
+      background: rgba(22, 163, 74, 0.92);
+      color: #ecfdf5;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(22, 163, 74, 0.7);
+    }
+
+    .footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 11px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="card">
+      <!-- LEFT SIDE: text + controls -->
+      <div class="left">
+        <h1>
+          <span class="emoji">🌱</span>
+          <span>Plant Disease Detection</span>
+        </h1>
+        <div class="subtitle">
+          Capture a leaf image using ESP32-CAM and get instant deep learning based diagnosis with fertilizer guidance.
+        </div>
+
+        <form action="{{ url_for('capture') }}" method="post">
+          <button type="submit" class="capture-btn">
+            <span class="icon">📸</span>
+            <span>Capture Image</span>
+          </button>
+        </form>
+
+        <div class="debug-chip">
+          ESP32 IP:
+          <code>{{ esp32 }}</code>
+        </div>
+
+        <div class="section-title">Latest diagnosis</div>
+
+        <div class="badge-row">
+          {% set p = pred|default("None") %}
+          {% set c = conf|default(0) %}
+
+          {% if p == "None" %}
+            <span class="pill warn"><strong>Status:</strong> Awaiting first capture</span>
+          {% elif "healthy" in p|lower %}
+            <span class="pill good"><strong>Status:</strong> Healthy</span>
+          {% else %}
+            <span class="pill bad"><strong>Status:</strong> Diseased</span>
+          {% endif %}
+
+          <span class="pill">
+            <strong>Confidence:</strong> {{ "%.2f"|format(c|float) }}%
+          </span>
+        </div>
+
+        <div class="disease-title">
+          {{ p if p != "None" else "No prediction yet" }}
+        </div>
+
+        <div class="disease-sub">
+          {% if latest_result and latest_result.description %}
+            {{ latest_result.description }}
+          {% elif p == "None" %}
+            Click <strong>Capture Image</strong> to analyze a leaf using the ESP32-CAM.
+          {% else %}
+            Detected by the deep learning model <code>plant_disease_model.h5</code>.
+          {% endif %}
+        </div>
+
+        <div class="timestamp">
+          Last updated: {{ at if at else "—" }}
+        </div>
+
+        <div class="info-box" style="margin-top: 16px;">
+          <h3>Fertilizer recommendation</h3>
+          <p>
+            {% if latest_result and latest_result.fertilizer %}
+              {{ latest_result.fertilizer }}
+            {% else %}
+              Once a disease is detected, a specific fertilizer or treatment recommendation
+              will appear here based on the model output and disease mapping.
+            {% endif %}
+          </p>
+        </div>
+
+        <div class="footer">
+          ESP32-CAM • Flask • TensorFlow • Smart Farming
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: image preview -->
+      <div class="right">
+        <div class="image-frame">
+          <div class="image-inner">
+            {% if pred != "None" %}
+              <img src="{{ url_for('static', filename='latest.jpg') }}?t={{ ts }}"
+                   alt="Latest leaf capture"
+                   class="preview-img" />
+              <div class="overlay-tag">
+                Latest ESP32-CAM Capture
+              </div>
+              <div class="conf-chip">
+                {{ "%.2f"|format(conf|float) }}% sure
+              </div>
+            {% else %}
+              <div class="no-img">
+                No image captured yet. After pressing <strong>Capture Image</strong>,
+                the latest photo from the ESP32-CAM will appear here and be analyzed
+                by the deep learning model.
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
